@@ -4,7 +4,7 @@ import PrivateRoute from './components/PrivateRoute';
 import DummyPage from './components/DummyPage';
 import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom';
 import Notfound from './components/notfound';
-import Vortex from './components/Vents';
+import Vents from './components/Vents';
 
 import './App.css';
 
@@ -31,7 +31,7 @@ function App() {
           {/* <Route exact path="/" component={Landing Page} /> */}
           <Route path="/login" component={Login} />
           <PrivateRoute exact path="/protected" component={DummyPage} /> 
-          <Route path="/vents" component={Vortex} />
+          <Route path="/vents" component={Vents} />
           <Route component={Notfound} />
         </Switch>
       </div>
