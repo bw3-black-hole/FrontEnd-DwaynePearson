@@ -1,6 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';import { connect } from 'react-redux';
+import { addNewVent, toggleVent } from '../actions';
 
-export default class ventForm extends Component {
+import { Button } from 'reactstrap';
+
+class VentForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -17,7 +20,13 @@ export default class ventForm extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
+        this.props.addVent(this.state);
+        this.setState({ topic: '', body: '' })
+    }
 
+    toggleVent = (e, index) => {
+        e.preventDefault();
+        this.props.toggleVent(index);
     }
 
   render() {
@@ -25,18 +34,38 @@ export default class ventForm extends Component {
       <form onSubmit={this.handleSubmit}>
                 Topic:
                 <input
+                    name="topic"
                     type="text"
                     placeholder="topic"
                     value={this.state.topic}
+                    onChange={this.handleChange}
+                    
                 />
+                <br />
                 <textarea
+                    name="body"
                     type="text"
+                    placeholder="description..."
+                    rows="12"
+                    cols="50"
                     value={this.state.body}
                     onChange={this.handleChange}
                 />
-            <button type="Submit">Submit</button>
-            <button>Organize</button>
+                <br />
+            <Button type="Submit">Submit</Button>
+            <Button>Organize</Button>
       </form>
     )
   }
 }
+
+const mapStateToProps = state => {
+    return {
+        vents: state.vents
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    { addNewVent, toggleVent }
+)(VentForm);

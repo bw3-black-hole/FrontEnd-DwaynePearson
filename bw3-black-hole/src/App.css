@@ -1,7 +1,9 @@
 .App {
   text-align: center;
   background-color: blueviolet;
-  background-image: '../../Images/BlackHole_Lensing.gif';
+  background-image: url('https://apod.nasa.gov/apod/image/1904/M33Meteor_Chokshi_2000.jpg');
+  background-size: cover;
+  color: lightgreen;
   height: 100vh;
 }
 
