@@ -1,0 +1,4 @@
+[build]
+base = "bw3-black-hole/"
+publish = "bw3-black-hole/build/"
+command = "yarn build"
