@@ -4,9 +4,9 @@ import './index.css';
 import App from './App';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import { setToken } from './util/token';
+import { setToken } from './utils/token';
 import thunk from 'redux-thunk';
-import { logger } from './util/logger';
+import { logger } from './utils/logger';
 import reducer from './reducers';
 
 const store = createStore((reducer, applyMiddleware(thunk, setToken, logger)));

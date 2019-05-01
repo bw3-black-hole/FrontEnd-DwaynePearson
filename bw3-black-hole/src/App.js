@@ -20,14 +20,14 @@ function App() {
             <NavLink activeClassName="active" to="/sign-up">Sign Up</NavLink>
           </li>
           <li>
-            <NavLink activeClassName="active" to="/vents">The Vortex</NavLink>
+            <NavLink activeClassName="active" to="/protected">The Vortex</NavLink>
           </li>
         </>
         <hr />
         <Switch>
           <Route exact path="/login" component={Login} />
           <Route path="/sign-up" component={SignUp} />
-          <PrivateRoute exact path="/vents" component={Vents} /> 
+          <PrivateRoute exact path="/protected" component={Vents} /> 
           <Route component={Notfound} />
         </Switch>
       </div>

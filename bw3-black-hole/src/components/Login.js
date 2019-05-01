@@ -54,6 +54,7 @@ class Login extends React.Component {
                         )}
                     </button>
                 </form>
+                {this.props.error && <p className="error">{this.props.error}</p>}
             </div>
         );
     }
@@ -61,10 +62,8 @@ class Login extends React.Component {
 
 }    
 
-const mapStateToProps = state => {
-    return {
-        isLoggingIn: state.isLoggingIn
-    };
-};
+const mapStateToProps = ({ isLoggingIn}) => ({
+    isLoggingIn
+})
 
 export default connect(mapStateToProps, { login })(Login);

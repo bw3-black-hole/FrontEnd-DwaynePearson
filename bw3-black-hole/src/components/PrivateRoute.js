@@ -19,8 +19,8 @@ const PrivateRoute = ({ component: Component, errorStatusCode, ...rest }) => {
     );
 };
 
-const mapStateToProps = state => ({
-    errorStatusCode: state.errorStatusCode
+const mapStateToProps = ({ errorStatusCode }) => ({
+    errorStatusCode
 });
 
 export default withRouter(
