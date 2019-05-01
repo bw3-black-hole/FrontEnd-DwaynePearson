@@ -24,6 +24,10 @@ class VentForm extends Component {
         this.setState({ topic: '', body: '' })
     }
 
+    addVent = e => {
+        e.preventDefault();
+    }
+
     toggleVent = (e, index) => {
         e.preventDefault();
         this.props.toggleVent(index);

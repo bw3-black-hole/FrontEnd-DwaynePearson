@@ -11,7 +11,7 @@ const PrivateRoute = ({ component: Component, errorStatusCode, ...rest }) => {
                     return <Component />;
                 } else {
                     console.log('redirecting!!!');
-                    alert('Please Login')
+                    alert('Please Login');
                     return <Redirect to="/login" />;
                 }
             }}

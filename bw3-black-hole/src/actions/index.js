@@ -1,13 +1,16 @@
 import axios from 'axios';
 
 export const LOGIN_START = 'LOGIN_START';
-export const login = credentials => dispatch => {
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAILURE = 'LOGIN_FAILURE';
+
+export const login = creds => dispatch => {
     dispatch({type: LOGIN_START});
     return
-        axios
-            .post('', credentials)
+        axios.post('', creds)
             .then(res => {
                 localStorage.setItem('token', res.data.payload);
+                dispatch({ type: LOGIN_SUCCESS, payload: res.data.payload })
             })
             .catch(err => console.log(err));
 }
@@ -21,7 +24,7 @@ export const TOGGLE_VENT = "TOGGLE_VENT";
 export const getData = () => dispatch => {
     dispatch({type: DATA_START});
     axios
-        .get('', {
+        .get('https://black-hole-server.herokuapp.com/', {
             headers: {Authorization: localStorage.getItem('token') }
         })
         .then(res => {

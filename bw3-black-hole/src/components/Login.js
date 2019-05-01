@@ -1,15 +1,13 @@
 import React from 'react';
 import Loader from 'react-loader-spinner';
 import { connect } from 'react-redux';
+import { login } from '../actions';
 
 class Login extends React.Component {
     state = {
         credentials: {
             username: '',
-            password: '',
-            // name: '',
-            // email: '',
-            // email2: ''
+            password: ''
         }
     };
 
@@ -24,9 +22,8 @@ class Login extends React.Component {
 
     login = e => {
         e.preventDefault();
-        this.props
-            .login(this.state.credentials)
-            .then(() => this.props.history.push('/protected'));
+        this.props.login(this.state.credentials)
+            .then(() => this.props.history.push('/vents'));
     };
 
     render() {
@@ -57,40 +54,6 @@ class Login extends React.Component {
                         )}
                     </button>
                 </form>
-                {/* <br />
-                    <h2>SignUp Below</h2>
-                <br />
-                <form onSubmit={this.signUp}>
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="Full Name"
-                        value={this.state.credentials.fullName}
-                        onChange={this.handleChange}
-                    />
-                    <br />
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="email"
-                        value={this.state.credentials.email}
-                        onChange={this.handleChange}
-                    />
-                    <br />
-                    <input
-                        type="email"
-                        name="email2"
-                        placeholder="verify email"
-                        value={this.state.credentials.email2}
-                        onChange={this.handleChange}
-                    />
-                    <br />
-                    <button>{this.props.isLoggingIn ? (
-                            <Loader type="TailSpin" />
-                        ) : ( 
-                            'Sign up'
-                        )}</button>
-                </form> */}
             </div>
         );
     }
@@ -104,4 +67,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps, { Login })(Login);
+export default connect(mapStateToProps, { login })(Login);
