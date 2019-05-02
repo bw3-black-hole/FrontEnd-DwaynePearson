@@ -22,7 +22,7 @@ export class SignUp extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
-
+        
     };
     
     render() {

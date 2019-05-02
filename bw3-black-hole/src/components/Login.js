@@ -12,6 +12,7 @@ class Login extends React.Component {
     };
 
     handleChange = e => {
+        
         this.setState({
             credentials: {
                 ...this.state.credentials,
@@ -20,16 +21,16 @@ class Login extends React.Component {
         });
     };
 
-    login = e => {
+    handleLogin = e => {
         e.preventDefault();
         this.props.login(this.state.credentials)
-            .then(() => this.props.history.push('/vents'));
+        this.props.history.push('/vents')
     };
 
     render() {
         return (
             <div>
-                <form onSubmit={this.login}>
+                <form onSubmit={this.handleLogin}>
                     <input
                         type="text"
                         name="username"
