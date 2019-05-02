@@ -8,7 +8,6 @@ export const login = ( credentials ) => dispatch => {
     dispatch({ type: LOGIN_START })
     return axios.post('https://blackhole-app.herokuapp.com/login', credentials )
         .then(res => {
-            console.log('hello')
             dispatch({ type: LOGIN_SUCCESS, payload: res.data })
         })
         .catch(err => dispatch({ type: LOGIN_FAILURE }))

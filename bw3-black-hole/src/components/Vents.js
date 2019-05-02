@@ -3,7 +3,7 @@ import VentForm from './VentForm';
 
 class Vents extends React.Component {
     componentDidMount() {
-        // this.props.getData();
+        this.props.getData();
     }
 
     render() {
